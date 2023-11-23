@@ -1,0 +1,28 @@
+{
+  "name": "serverless-tag-resources",
+  "version": "1.2.38",
+  "description": "Datamart Solution: Tag all aws resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org:datamartcl/dm-serverless-tag-resources-plugin.git"
+  },
+  "keywords": [
+    "serverless",
+    "tags",
+    "stage",
+    "plugin",
+    "tag",
+    "aws",
+    "resource",
+    "tagging"
+  ],
+  "author": "Yunier Saborit <ysaborit@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.864.0"
+  }
+}

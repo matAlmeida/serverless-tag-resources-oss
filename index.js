@@ -9,16 +9,6 @@ class TagResourcesServerlessPlugin {
     this.stage = this.awsService.getStage();
     this.region = this.awsService.getRegion();
     this.partition = this.awsService.partition || "aws";
-    aws.config.update({ region: this.region });
-    const credentials = this.awsService.getCredentials();
-    this.cfnService = new aws.CloudFormation(credentials);
-    this.ssmService = new aws.SSM(credentials);
-    this.iamService = new aws.IAM(credentials);
-    this.rdsService = new aws.RDS(credentials);
-    this.pinpointService = new aws.Pinpoint(credentials);
-    this.apigwv2Service = new aws.ApiGatewayV2(credentials);
-    this.firehoseService = new aws.Firehose(credentials);
-    this.ec2Service = new aws.EC2(credentials);
 
     this.unsupportedTypes = [
       "AWS::Lambda::Version",
@@ -211,6 +201,7 @@ class TagResourcesServerlessPlugin {
 
     this.hooks = {
       "before:package:finalize": this.tagResources.bind(this),
+      "before:deploy:deploy": this.loadAwsCredentials.bind(this),
       "after:deploy:deploy": this.updateTagsPostDeploy.bind(this),
     };
   }
@@ -366,6 +357,20 @@ class TagResourcesServerlessPlugin {
         Value: logicalID,
       });
     }
+  }
+
+  loadAwsCredentials() {
+    this.region = this.awsService.getRegion();
+    aws.config.update({ region: this.region });
+    const credentials = this.awsService.getCredentials();
+    this.cfnService = new aws.CloudFormation(credentials);
+    this.ssmService = new aws.SSM(credentials);
+    this.iamService = new aws.IAM(credentials);
+    this.rdsService = new aws.RDS(credentials);
+    this.pinpointService = new aws.Pinpoint(credentials);
+    this.apigwv2Service = new aws.ApiGatewayV2(credentials);
+    this.firehoseService = new aws.Firehose(credentials);
+    this.ec2Service = new aws.EC2(credentials);
   }
 
   async updateTagsPostDeploy() {

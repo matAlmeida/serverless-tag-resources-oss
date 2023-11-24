@@ -20,7 +20,7 @@ then add it in your plugins list:
 
 ```
 plugins:
-  - serverless-tag-resources
+  - serverless-tag-resources-oss
   ```
 
 ## Tags Configuration

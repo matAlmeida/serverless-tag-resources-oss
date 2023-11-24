@@ -1,5 +1,7 @@
-# serverless-tag-resources
+# serverless-tag-resources-oss
 A serverless plugin to tag all resources on AWS
+
+This is a clone of the [`serverless-tag-resources`](https://www.npmjs.com/package/serverless-tag-resources) as open-source
 
 ## Features
  * Tag all resources created by serverless

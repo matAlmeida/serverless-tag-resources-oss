@@ -1,7 +1,7 @@
 {
-  "name": "serverless-tag-resources",
+  "name": "serverless-tag-resources-oss",
   "version": "1.2.38",
-  "description": "Datamart Solution: Tag all aws resources",
+  "description": "A serverless plugin to tag all resources on AWS - Open Source version of serverless-tag-resources",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,9 @@
     "tagging"
   ],
   "author": "Yunier Saborit <ysaborit@gmail.com>",
+  "contributors": [
+    "Matheus Almeida <mat.almeida@live.com>"
+  ],
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.864.0"

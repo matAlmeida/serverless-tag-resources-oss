@@ -168,25 +168,9 @@ class TagResourcesServerlessPlugin {
 
     this.tagDictBasedTypes = [
       "AWS::SSM::Parameter",
-      "AWS::Pinpoint::App",
-      /***Estos deben caer en algun momento***/
-      // "AWS::Pinpoint::Campaign",
-      // "AWS::Pinpoint::EmailTemplate",
-      // "AWS::Pinpoint::PushTemplate",
-      // "AWS::Pinpoint::SmsTemplate",
-      // "AWS::Pinpoint::Segment",
-      /***Fin Estos***/
       "AWS::ApiGatewayV2::Api",
-      "AWS::ApiGatewayV2::Stage",
       "AWS::ApiGatewayV2::DomainName",
       "AWS::ApiGatewayV2::VpcLink",
-      "AWS::Glue::Job",
-      "AWS::Glue::Crawler",
-      "AWS::Glue::DevEndpoint",
-      "AWS::Glue::MLTransform",
-      "AWS::Glue::Trigger",
-      "AWS::Glue::Workflow",
-      "AWS::Batch::JobDefinition",
       "AWS::Batch::ComputeEnvironment",
       "AWS::Batch::JobQueue",
       "AWS::Batch::SchedulingPolicy",
@@ -194,12 +178,8 @@ class TagResourcesServerlessPlugin {
     ];
 
     this.otherBasedTypes = [
-      // "AWS::IAM::Role", 
-      "AWS::RDS::DBCluster",
-      "AWS::KinesisFirehose::DeliveryStream",
+      "AWS::RDS::DBCluster", // Does not work on every cluster type
     ];
-
-    this.haveRelatedTypes = ["AWS::EC2::Instance"];
 
     this.hooks = {
       "before:package:finalize": this.tagResources.bind(this),

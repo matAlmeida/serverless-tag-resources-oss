@@ -304,9 +304,9 @@ class TagResourcesServerlessPlugin {
 
   tagDictBasedResources(objResources, logicalID) {
     let stackTags = Object.assign({}, this._dictBasedStackTags());
-    var tags = objResources.Resources[logicalID]["Properties"]["Tags"];
+    const tags = objResources.Resources[logicalID]["Properties"]["Tags"];
     if (tags) {
-      for (var key in stackTags) {
+      for (let key in stackTags) {
         objResources.Resources[logicalID]["Properties"]["Tags"][key] =
           stackTags[key];
       }
@@ -316,7 +316,7 @@ class TagResourcesServerlessPlugin {
     //Adding/Updating Resource tag
     let tagResource = false;
     if (objResources.Resources[logicalID]["Properties"]["Tags"]) {
-      for (var key in objResources.Resources[logicalID]["Properties"]["Tags"]) {
+      for (let key in objResources.Resources[logicalID]["Properties"]["Tags"]) {
         if (key === "Resource") {
           objResources.Resources[logicalID]["Properties"]["Tags"]["Resource"] =
             logicalID;
@@ -549,10 +549,7 @@ class TagResourcesServerlessPlugin {
         ) {
           if (cfTemplate.Resources[logicalID]["Properties"]) {
             if (self.tagDictBasedTypes.indexOf(resourceType) !== -1) {
-              // this.tagDictBasedResources(cfTemplate, logicalID)
-              this.serverless.cli.log(
-                `TAGGING: dict based resource => ${resourceType}`
-              );
+              this.tagDictBasedResources(awsResources, logicalID)
             } else if (self.otherBasedTypes.indexOf(resourceType) == -1) {
               this.tagListBasedResources(cfTemplate, logicalID);
             }
@@ -578,10 +575,7 @@ class TagResourcesServerlessPlugin {
         ) {
           if (awsResources.Resources[logicalID]["Properties"]) {
             if (self.tagDictBasedTypes.indexOf(resourceType) !== -1) {
-              // this.tagDictBasedResources(awsResources, logicalID)
-              this.serverless.cli.log(
-                `TAGGING: dict based resource => ${resourceType}`
-              );
+              this.tagDictBasedResources(awsResources, logicalID)
             } else if (self.otherBasedTypes.indexOf(resourceType) == -1) {
               this.tagListBasedResources(awsResources, logicalID);
             }

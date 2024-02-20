@@ -163,6 +163,7 @@ class TagResourcesServerlessPlugin {
       "AWS::Pinpoint::VoiceChannel",
       "AWS::QLDB::Ledger",
       "AWS::Scheduler::Schedule",
+      "AWS::MSK::Configuration",
     ];
 
     this.tagDictBasedTypes = [

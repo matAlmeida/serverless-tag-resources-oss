@@ -190,6 +190,7 @@ class TagResourcesServerlessPlugin {
       "AWS::Batch::ComputeEnvironment",
       "AWS::Batch::JobQueue",
       "AWS::Batch::SchedulingPolicy",
+      "AWS::MSK::Cluster",
     ];
 
     this.otherBasedTypes = [

@@ -182,6 +182,8 @@ class TagResourcesServerlessPlugin {
       "AWS::RDS::DBCluster", // Does not work on every cluster type
     ];
 
+    this.haveRelatedTypes = [];
+
     this.hooks = {
       "before:package:finalize": this.tagResources.bind(this),
       "before:deploy:deploy": this.loadAwsCredentials.bind(this),

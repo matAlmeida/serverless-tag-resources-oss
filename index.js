@@ -164,6 +164,7 @@ class TagResourcesServerlessPlugin {
       "AWS::QLDB::Ledger",
       "AWS::Scheduler::Schedule",
       "AWS::MSK::Configuration",
+      "AWS::MSK::BatchScramSecret",
     ];
 
     this.tagDictBasedTypes = [

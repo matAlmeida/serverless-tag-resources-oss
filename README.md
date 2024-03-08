@@ -1,6 +1,8 @@
 # serverless-tag-resources-oss
 A serverless plugin to tag all resources on AWS
 
+![NPM Version](https://img.shields.io/npm/v/serverless-tag-resources-oss) ![NPM Downloads](https://img.shields.io/npm/dt/serverless-tag-resources-oss)
+
 This is a clone of the [`serverless-tag-resources`](https://www.npmjs.com/package/serverless-tag-resources) as open-source
 
 ## Features
@@ -13,7 +15,7 @@ This is a clone of the [`serverless-tag-resources`](https://www.npmjs.com/packag
 ## Instalation
 
 ```
-npm i serverless-tag-resources
+npm i serverless-tag-resources-oss
 ```
 
 then add it in your plugins list:
